@@ -37,7 +37,12 @@ DevTools Networks tab + Python + Tesseract + 🧠 = 💣
     - `API_KEY`: From your https://checkvisaslots.com.
     - `BOT_TOKEN`: From BotFather in Telegram.
     - `CHAT_ID`: ID of group you want to run it in.
-- Change the location (default Chennai) and checking interval (default).
+- Change the location (default Chennai) and checking interval (default 10 mins).
+
+Some info on using the bot. 
+- Monitoring start immediately - runs once every 10 mins. 
+- Does not work in groups than the one you have authorized. 
+- `/run` command to manually run a check
 
 <div align="center">
 
