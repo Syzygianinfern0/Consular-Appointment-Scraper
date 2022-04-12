@@ -2,9 +2,6 @@
 .idea/
 .vscode/
 
-### Secrets
-config.env
-
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -33,6 +33,7 @@ DevTools Networks tab + Python + Tesseract + 🧠 = 💣
 - Clone and create heroku app linked to this.
 - Add [apt buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt) (we need to install `libgl1`
   to make cv2 work).
+- `heroku config:set TESSDATA_PREFIX=/app/.apt/usr/share/tesseract-ocr/tessdata`
 - Setup config vars of
     - `API_KEY`: From your https://checkvisaslots.com.
     - `BOT_TOKEN`: From BotFather in Telegram.
