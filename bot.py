@@ -74,7 +74,7 @@ def run_once(bot, chat_id, old_log_text=None, old_log_pics=[], send_dupes=False)
         bot.send_message(chat_id=chat_id, text=log_text)
 
     log_pics = []
-    if slots[0] > 0:
+    if slots[0] > -1:
         response = requests.get(SCREENSHOTS_URL, headers=SCREENSHOTS_HEADERS)
         results = eval(response.text)
         screenshots = get_chennai_screenshot(results)
@@ -100,7 +100,8 @@ def monitor(bot, chat_id, old_log_text=None, old_log_pics=[], send_dupes=False):
         logger.info("Monitoring started!")
     log_text, log_pics = run_once(bot, chat_id, old_log_text, old_log_pics, send_dupes)
     threading.Timer(
-        60 * 10,
+        # 60 * 10,
+        10,
         monitor,
         kwargs={
             "bot": bot,
