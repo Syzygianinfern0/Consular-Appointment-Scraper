@@ -87,7 +87,7 @@ def run_once(bot, chat_id, old_log_text=None, old_log_pics=None, api_key=None, s
         else:
             bot.send_message(chat_id=chat_id, text=f"{log_text} ({api_key})")
     log_pics = []
-    if slots[0] > -1:
+    if slots[0] > 0:
         response = requests.get(SCREENSHOTS_URL, headers=get_screenshots_header(api_key))
         results = eval(response.text)
         screenshots = get_chennai_screenshots(results)
@@ -148,7 +148,7 @@ def main():
 
     # Welcome message
     bot.send_message(
-        chat_id=CHAT_ID, text="<b>Bot Started!</b> ) @Syzygianinfern0 @M_N_Sathish", parse_mode=ParseMode.HTML
+        chat_id=CHAT_ID, text="<b>Bot Started!</b> @Syzygianinfern0 @M_N_Sathish", parse_mode=ParseMode.HTML
     )
     logger.info("Bot started!")
 
