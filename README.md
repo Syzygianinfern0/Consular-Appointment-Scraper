@@ -9,7 +9,7 @@
 ## What? 👀
 
 - Pro way to not waste your daily login and click quota on [CGI Federal](https://cgifederal.secure.force.com/).
-- Runs 24/7 without interference. 
+- Runs 24/7 without interference.
 - Checks for available VISA consular interview slots in Chennai from S3-buckets used by https://checkvisaslots.com.
 - Notifies on Telegram whenever changes are detected along with relevant screenshots (searches for 'Chennai' in images
   using Tesseract-OCR).
