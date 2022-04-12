@@ -1,6 +1,7 @@
 import logging
 import random
 import threading
+import traceback
 from datetime import datetime, timedelta
 from urllib.request import urlopen
 
@@ -113,7 +114,13 @@ def monitor(bot, chat_id, old_log_text=None, old_log_pics=None):
     if old_log_text is None:
         bot.send_message(chat_id=CHAT_ID, text="<b>Monitoring Started!</b>", parse_mode=ParseMode.HTML)
         logger.info("Monitoring started!")
-    log_text, log_pics = run_once(bot, chat_id, old_log_text, old_log_pics)
+    try:
+        log_text, log_pics = run_once(bot, chat_id, old_log_text, old_log_pics)
+    except Exception as e:
+        logger.error(e)
+        bot.send_message(chat_id=CHAT_ID, text=f"Bot Crashed @Syzygianinfern0: {e}\n{traceback.format_exc()}")
+        log_text, log_pics = old_log_text, old_log_pics
+
     threading.Timer(
         60 * 5,
         monitor,
@@ -135,7 +142,13 @@ def start_handler(update: Update, context: CallbackContext):
 
 def run_once_handler(update: Update, context: CallbackContext):
     if str(update.effective_chat.id) == CHAT_ID:
-        run_once(context.bot, update.effective_chat.id)
+        try:
+            run_once(context.bot, update.effective_chat.id)
+        except Exception as e:
+            logger.error(e)
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text=f"Bot Crashed @Syzygianinfern0: {e}\n{traceback.format_exc()}"
+            )
     else:
         context.bot.send_message(chat_id=update.effective_chat.id, text="Unauthorized!")
 
