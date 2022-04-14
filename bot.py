@@ -116,13 +116,15 @@ def monitor(bot, chat_id, old_log_text=None, old_log_pics=None):
         logger.info("Monitoring started!")
     try:
         log_text, log_pics = run_once(bot, chat_id, old_log_text, old_log_pics)
+        minutes = 5
     except Exception as e:
         logger.error(e)
         bot.send_message(chat_id=CHAT_ID, text=f"Bot Crashed @Syzygianinfern0: {e}\n{traceback.format_exc()}")
         log_text, log_pics = old_log_text, old_log_pics
+        minutes = 0
 
     threading.Timer(
-        60 * 5,
+        60 * minutes,
         monitor,
         kwargs={
             "bot": bot,
