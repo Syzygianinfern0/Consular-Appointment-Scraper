@@ -121,7 +121,7 @@ def monitor(bot, chat_id, old_log_text=None, old_log_pics=None):
         logger.error(e)
         bot.send_message(chat_id=CHAT_ID, text=f"Bot Crashed @Syzygianinfern0: {e}\n{traceback.format_exc()}")
         log_text, log_pics = old_log_text, old_log_pics
-        minutes = 0
+        minutes = 1
 
     threading.Timer(
         60 * minutes,
