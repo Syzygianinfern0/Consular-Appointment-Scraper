@@ -13,7 +13,7 @@ from dotenv import dotenv_values
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, Updater
 
-SLOTS_URL = "https://app.checkvisaslots.com/slots"
+SLOTS_URL = "https://app.checkvisaslots.com/slots/v1"
 SCREENSHOTS_URL = "https://app.checkvisaslots.com/retrieve/v1"
 SCREENSHOTS_FILE_URL = "https://cvs-all-files.s3.amazonaws.com"
 
@@ -28,8 +28,10 @@ logger = logging.getLogger(__name__)
 
 def get_slot_header(api_key):
     return {
-        "origin": "chrome-extension://beepaenfejnphdgnkmccjcfiieihhogl",
-        "x-api-key": api_key,
+        'authority': 'app.checkvisaslots.com',
+        'origin': 'chrome-extension://beepaenfejnphdgnkmccjcfiieihhogl',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+        'x-api-key': api_key,
     }
 
 

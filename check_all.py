@@ -1,6 +1,6 @@
 import requests
 
-CHECK_URL = "https://app.checkvisaslots.com/validate"
+CHECK_URL = "https://app.checkvisaslots.com/validate/v1"
 
 
 def get_validate_header(api_key):
