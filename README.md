@@ -30,15 +30,18 @@ DevTools Networks tab + Python + Tesseract + 🧠 = 💣
 
 ## Usage 👨‍💻
 
-- Clone and create heroku app linked to this.
-- Add [apt buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-apt) (we need to install `libgl1`
-  to make cv2 work).
-- `heroku config:set TESSDATA_PREFIX=/app/.apt/usr/share/tesseract-ocr/tessdata`
+- Clone repo
+- install pipenv
+- install tesseract ocr for your machine
 - Setup config vars of
     - `API_KEY`: From your https://checkvisaslots.com.
     - `BOT_TOKEN`: From BotFather in Telegram.
     - `CHAT_ID`: ID of group you want to run it in.
+    - `YEAR`: which year you're looking for slots in
+    - `MONTHS`: which months to notify you for
 - Change the location (default Chennai) and checking interval (default 10 mins).
+- run `pipenv install`
+- run `pipenv run python bot.py`
 
 Some info on using the bot. 
 - Monitoring start immediately - runs once every 10 mins. 

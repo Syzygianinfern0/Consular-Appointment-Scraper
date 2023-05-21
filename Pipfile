@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-python-headless = "~=4.5.5.64"
+numpy = "~=1.21.6"
+pytesseract = "~=0.3.9"
+requests = "~=2.27.1"
+python-dotenv = "~=0.20.0"
+python-telegram-bot = "~=13.11"
+python-dateutil = "*"
+datefinder = "*"
+dateparser = "*"
+thefuzz = {extras = ["speedup"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
